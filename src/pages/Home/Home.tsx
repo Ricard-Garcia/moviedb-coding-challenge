@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
+// API
+import { getPopularMovies } from "../../api/movies-api";
+
+// Utils
+import { filterData } from "../../utils/filters";
+
 // Components
 import Layout from "../../components/Layout";
 import ViewToggle from "../../components/ViewToggle";
@@ -18,9 +24,15 @@ export default function Home() {
     setShowMovies(!showMovies); // Component state
   };
 
+  const loadPopularMovies = async () => {
+    const data = await getPopularMovies();
+    const filteredArray = filterData(data);
+    console.log("Popular movies: ", filteredArray);
+  };
+
   // Load/Update component
   useEffect(() => {
-    console.log("Loaded default");
+    loadPopularMovies();
   }, []);
 
   return (

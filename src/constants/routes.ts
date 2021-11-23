@@ -10,6 +10,7 @@ export const PAGES = {
 export const API = {
   MAIN: REACT_APP_API_ROUTE,
 };
+console.log(REACT_APP_API_ROUTE);
 
 // Outside pages
 export const OUTSIDE = {
