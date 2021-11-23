@@ -1,0 +1,28 @@
+@use "../../sass/components/colors" as c;
+
+#switchWrapper {
+  // Switch thumb
+  .react-toggle-thumb {
+    border: 1px solid c.$darkColor;
+    box-shadow: none;
+  }
+
+  // General track
+  .react-toggle-track-check,
+  .react-toggle-track-x {
+    display: flex;
+    align-items: center;
+  }
+
+  // Light mode
+  .custom-switch.react-toggle--checked .react-toggle-track {
+    background-color: c.$lightColor;
+    border: 1px solid c.$lightColor;
+  }
+
+  // Dark mode
+  .custom-switch.react-toggle--x .react-toggle-track {
+    background-color: c.$darkColor;
+    border: 1px solid c.$darkColor;
+  }
+}

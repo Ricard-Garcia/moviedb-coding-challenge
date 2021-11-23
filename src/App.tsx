@@ -4,6 +4,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./sass/main.scss";
+import "react-toggle/style.css";
 
 // Components
 import Router from "./components/Router";
