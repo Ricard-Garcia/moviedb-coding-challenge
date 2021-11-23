@@ -10,3 +10,8 @@ export const PAGES = {
 export const API = {
   MAIN: REACT_APP_API_ROUTE,
 };
+
+// Outside pages
+export const OUTSIDE = {
+  REPOSITORY: "https://github.com/Ricard-Garcia/moviedb-coding-challenge",
+};

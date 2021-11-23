@@ -1,0 +1,47 @@
+/* -------------------------------------------------------------------------- */
+/*                                   CLASSES                                  */
+/* -------------------------------------------------------------------------- */
+.flex-center-center,
+.flex-between-start,
+.flex-between-center,
+.flex-center-start,
+.flex-end-start {
+  //   width: 100%;
+  display: flex;
+}
+
+// Justify
+.flex-center-center,
+.flex-center-start {
+  justify-content: center;
+}
+
+.flex-between-start,
+.flex-between-center {
+  justify-content: space-between;
+}
+
+.flex-end-start {
+  justify-content: end;
+}
+
+// Align
+.flex-between-start,
+.flex-center-start,
+.flex-end-start {
+  align-items: start;
+}
+
+.flex-center-center,
+.flex-between-center {
+  align-items: center;
+}
+
+// Width & height
+.w-fit-content {
+  width: fit-content;
+}
+
+.h-fit-content {
+  height: fit-content;
+}
