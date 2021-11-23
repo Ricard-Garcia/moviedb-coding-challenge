@@ -2,7 +2,7 @@ import React from "react";
 
 // React components
 export interface OnlyChildren {
-  children: React.ReactChild;
+  children: React.ReactChild | React.ReactChild[];
 }
 
 // Redux
