@@ -21,7 +21,7 @@ export default function Footer() {
       <p className="col-12 col-md-6 m-0 px-0">Ricard Garcia © 2021</p>
       <a
         href={OUTSIDE.REPOSITORY}
-        className="d-none d-md-block fw-bold text-end col-6 px-0"
+        className="d-none d-md-block fw-light text-end col-6 px-0"
       >
         Site's Github repository
       </a>

@@ -1,8 +1,13 @@
-// Colors
+/* -------------------------------------------------------------------------- */
+/*                                  VARIABLES                                 */
+/* -------------------------------------------------------------------------- */
 $lightColor: rgba(247, 246, 243, 1);
 $darkColor: rgb(28, 28, 28);
 
-// Background classes
+/* -------------------------------------------------------------------------- */
+/*                                   CLASSES                                  */
+/* -------------------------------------------------------------------------- */
+// Background
 .bg {
   &-light {
     background: $lightColor !important; // Using !important just to overwrite .bg-light class
@@ -12,7 +17,7 @@ $darkColor: rgb(28, 28, 28);
   }
 }
 
-// Font classes
+// Font
 .ft {
   &-light {
     color: $lightColor;

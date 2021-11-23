@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 // Components
 import Layout from "../../components/Layout";
+import ViewToggle from "../../components/ViewToggle";
 
 export default function Home() {
   // State
@@ -24,10 +25,18 @@ export default function Home() {
 
   return (
     <Layout>
-      <h1>Home</h1>
-      <button type="button" onClick={handleToggleView}>
-        Toggle
-      </button>
+      {/* Top */}
+      <div id="homeTop" className="flex-between-center px-5 pb-5">
+        <h1 className="text-uppercase">
+          {showMovies ? "Popular movies" : "Popular shows"}
+        </h1>
+        <ViewToggle handleChange={handleToggleView} />
+      </div>
+
+      {/* Bottom */}
+      <div id="homeBottom">
+        <p>Content goes here</p>
+      </div>
     </Layout>
   );
 }

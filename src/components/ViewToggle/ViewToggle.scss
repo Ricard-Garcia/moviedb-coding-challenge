@@ -1,0 +1,25 @@
+@use "../../sass/components/colors" as c;
+@import "bootstrap";
+
+.custom-radio {
+  @extend .btn;
+  color: c.$darkColor;
+  border: 2px solid c.$darkColor;
+  background: unset;
+  box-shadow: none;
+
+  &:hover {
+    color: c.$lightColor;
+    background: c.$darkColor;
+  }
+}
+.custom-btn-check {
+  @extend .btn-check;
+  &:checked + label {
+    color: c.$lightColor;
+    background: c.$darkColor;
+  }
+}
+.custom-btn-check:focus + .custom-radio {
+  box-shadow: none;
+}

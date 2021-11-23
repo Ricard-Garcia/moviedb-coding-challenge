@@ -1,4 +1,13 @@
-// Font declaration
+/* -------------------------------------------------------------------------- */
+/*                                  VARIABLES                                 */
+/* -------------------------------------------------------------------------- */
+$lightWeight: 150;
+$regularWeight: 300;
+$boldWeight: 800;
+
+/* -------------------------------------------------------------------------- */
+/*                                    FONTS                                   */
+/* -------------------------------------------------------------------------- */
 @font-face {
   font-family: "Cabinet";
   src: url("../../assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2"),
@@ -31,13 +40,13 @@
 
 // Weights
 .fw-light {
-  font-weight: 100;
+  font-weight: $lightWeight;
 }
 
 .fw-regular {
-  font-weight: 400;
+  font-weight: $regularWeight;
 }
 
 .fw-bold {
-  font-weight: 800;
+  font-weight: $boldWeight;
 }
