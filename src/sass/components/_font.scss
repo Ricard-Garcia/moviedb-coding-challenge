@@ -1,7 +1,19 @@
-* {
-  font-family: "Roboto", sans-serif;
+// Font declaration
+@font-face {
+  font-family: "Cabinet";
+  src: url("../../assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2"),
+    url("../../assets/fonts/CabinetGrotesk-Variable.woff") format("woff"),
+    url("../../assets/fonts/CabinetGrotesk-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
 }
 
+* {
+  font-family: "Cabinet", sans-serif;
+}
+
+// Sizes
 .ft-large {
   font-size: 64px;
   line-height: 75px;
@@ -15,4 +27,17 @@
 .ft-small {
   font-size: 14px;
   line-height: 16px;
+}
+
+// Weights
+.fw-light {
+  font-weight: 100;
+}
+
+.fw-regular {
+  font-weight: 400;
+}
+
+.fw-bold {
+  font-weight: 800;
 }
