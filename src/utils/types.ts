@@ -1,5 +1,5 @@
 import React from "react";
 
 export interface OnlyChildren {
-  children: React.ReactChild;
+  children: React.ReactChild | React.ReactChild[];
 }
