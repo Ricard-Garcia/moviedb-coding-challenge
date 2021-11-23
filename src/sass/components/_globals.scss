@@ -1,0 +1,28 @@
+@use "./colors" as c;
+
+// Test guidelines
+* {
+  // Guides
+  // outline: 2px solid blue;
+}
+
+// Make root div have 100% height
+body {
+  height: 100vh;
+  margin: 0;
+  #root {
+    height: 100%;
+    #App {
+      height: 100%;
+    }
+  }
+}
+
+// Remove default styles in button
+button {
+  border: none;
+  background: unset;
+  &:active {
+    outline: 0;
+  }
+}

@@ -1,0 +1,23 @@
+// Colors
+$lightColor: rgba(247, 246, 243, 1);
+$darkColor: rgba(55, 56, 56, 1);
+
+// Background classes
+.bg {
+  &-light {
+    background: $lightColor !important; // Using !important just to overwrite .bg-light class
+  }
+  &-dark {
+    background: $darkColor !important; // Using !important just to overwrite .bg-dark class
+  }
+}
+
+// Font classes
+.ft {
+  &-light {
+    color: $lightColor;
+  }
+  &-dark {
+    color: $darkColor;
+  }
+}
