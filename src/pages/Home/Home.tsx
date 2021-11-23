@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 // API
 import { getPopularMovies } from "../../api/movies-api";
+import { getPopularShows } from "../../api/shows-api";
 
 // Utils
 import { filterData } from "../../utils/filters";
@@ -10,14 +11,14 @@ import { filterData } from "../../utils/filters";
 // Components
 import Layout from "../../components/Layout";
 import ViewToggle from "../../components/ViewToggle";
+import Spinner from "../../components/Spinner";
+import MovieCard from "../../components/MovieCard";
 
 export default function Home() {
   // State
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [showMovies, setShowMovies] = useState<boolean>(true);
   const [contentArray, setContentArray] = useState<any>([]);
-
-  // Redux
-  const globalState = useSelector((state: any) => state.global);
 
   // Handlers & loaders
   const handleToggleView = (): void => {
@@ -25,15 +26,44 @@ export default function Home() {
   };
 
   const loadPopularMovies = async () => {
+    // Start loading
+    setIsLoading(true);
+
     const data = await getPopularMovies();
     const filteredArray = filterData(data);
-    console.log("Popular movies: ", filteredArray);
+    setContentArray(filteredArray);
+    console.log("MOVIES", filteredArray);
+
+    // Stop loading
+    setIsLoading(false);
+  };
+
+  const loadPopularShows = async () => {
+    // Start loading
+    setIsLoading(true);
+
+    const data = await getPopularShows();
+    console.log(data.data);
+    // const filteredArray = filterData(data);
+    // setContentArray(filteredArray);
+    // console.log("SHOWS", filteredArray);
+
+    // Stop loading
+    setIsLoading(false);
   };
 
   // Load/Update component
   useEffect(() => {
     loadPopularMovies();
   }, []);
+
+  useEffect(() => {
+    if (showMovies) {
+      loadPopularMovies();
+    } else {
+      loadPopularShows();
+    }
+  }, [showMovies]);
 
   return (
     <Layout>
@@ -46,8 +76,13 @@ export default function Home() {
       </div>
 
       {/* Bottom */}
-      <div id="homeBottom">
-        <p>Content goes here</p>
+      <div id="homeBottom" className="row p-0">
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          // TODO solve bug (MovieObject | ShowObject title)
+          contentArray.map((item: any) => <MovieCard item={item} />)
+        )}
       </div>
     </Layout>
   );

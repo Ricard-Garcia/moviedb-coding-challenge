@@ -9,8 +9,8 @@ export const PAGES = {
 // API
 export const API = {
   MAIN: REACT_APP_API_ROUTE,
+  IMAGES: "https://image.tmdb.org/t/p/original",
 };
-console.log(REACT_APP_API_ROUTE);
 
 // Outside pages
 export const OUTSIDE = {

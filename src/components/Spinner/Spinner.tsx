@@ -1,12 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 // Utils
-import { ReduxState } from "../../utils/types";
 import setTheme from "../../utils/theme";
 
-export default function Spinner({ isLight }: ReduxState) {
+export default function Spinner() {
+  // Redux
+  const globalState = useSelector((state: any) => state.global);
+
   // Theme colors
-  const [primary, secondary] = setTheme(isLight);
+  const [primary, secondary] = setTheme(globalState.isLight);
 
   return <div className={`spinner-grow ft-${secondary}`} />;
 }

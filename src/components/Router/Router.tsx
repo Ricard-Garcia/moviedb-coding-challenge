@@ -12,7 +12,7 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={PAGES.DETAIL} element={<Detail />} />
+        <Route path={`${PAGES.DETAIL}/:id`} element={<Detail />} />
         <Route path={PAGES.HOME} element={<Home />} />
       </Routes>
     </BrowserRouter>
