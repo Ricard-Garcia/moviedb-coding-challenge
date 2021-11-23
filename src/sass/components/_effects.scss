@@ -1,0 +1,74 @@
+@use "./colors" as c;
+
+/* -------------------------------------------------------------------------- */
+/*                                  VARIABLES                                 */
+/* -------------------------------------------------------------------------- */
+$strokeWeight: 2px;
+
+$transitionValue: 0.3s;
+
+$borderRadius: 5px;
+$circleRadius: 50%;
+
+$blurPx: 20px;
+
+/* -------------------------------------------------------------------------- */
+/*                                   CLASSES                                  */
+/* -------------------------------------------------------------------------- */
+
+// Borders
+.bt-light,
+.bb-light,
+.ba-light,
+.btb-light,
+.btb-light-20 {
+  border-color: c.$lightColor;
+}
+
+// .ba-light-20 {
+//   border-color: c.$lightColor20;
+// }
+
+// .btb-light-20 {
+//   border-top: solid $strokeWeight c.$lightColor20;
+//   border-bottom: solid $strokeWeight c.$lightColor20;
+// }
+
+.btb-light {
+  border-top: solid $strokeWeight;
+  border-bottom: solid $strokeWeight;
+}
+
+.ba-light,
+.ba-light-20 {
+  border: solid $strokeWeight;
+  border-radius: $borderRadius;
+}
+
+.ba-rounded {
+  border-radius: $circleRadius;
+  aspect-ratio: 1;
+}
+
+.bt-light {
+  border-top: solid $strokeWeight;
+}
+
+.bb-light {
+  border-bottom: solid $strokeWeight;
+}
+
+.ba-rounded-corners {
+  border-radius: $borderRadius;
+}
+
+// Transitions
+a,
+button {
+  transition: $transitionValue;
+}
+
+// Blur
+.bg-blur {
+  backdrop-filter: blur($blurPx);
+}

@@ -1,11 +1,22 @@
+@use "../../sass/components/effects" as e;
+
 .movie-card-wrapper {
   position: relative;
   height: 350px;
-  .movie-card-image {
-    position: absolute;
-    object-fit: cover;
+  .movie-card-image-wrapper {
     width: 100%;
     height: 100%;
+    .movie-card-image {
+      transition: e.$transitionValue;
+      &:hover {
+        filter: blur(e.$blurPx) brightness(95%);
+      }
+
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
   .movie-card-text {
     z-index: 10;

@@ -24,6 +24,9 @@ export async function getPopularMovies(
 }
 
 // Get popular movies
-export async function getMovieById(id: number, api: any = makeMovieApi()) {
+export async function getMovieById(
+  id: string | null,
+  api: any = makeMovieApi()
+) {
   return api.get(`/${id}?api_key=${REACT_APP_API_KEY}`);
 }

@@ -11,18 +11,26 @@ import { MovieCardProps } from "../../utils/types";
 import "./MovieCard.scss";
 
 export default function MovieCard({ item }: MovieCardProps) {
+  let isMovie: boolean = false;
+
+  if (item.title) {
+    isMovie = true;
+  }
+
   return (
     <Link
       className="movie-card-wrapper flex-column flex-center-center col col-12 col-sm-6 col-md-3"
       to={`${PAGES.DETAIL}/${item.id}`}
+      state={{ isMovie: isMovie }}
     >
       {/* Image */}
-      <img className="movie-card-image" src={item.image} alt={item.id} />
-
+      <div className="movie-card-image-wrapper">
+        <img className="movie-card-image" src={item.image} alt={item.id} />
+      </div>
       {/* Text */}
       <div className="movie-card-text text-center ft-dark">
         <h5 className="fw-bold text-truncate">
-          {item.title ? item.title : item.name}
+          {isMovie ? item.title : item.name}
         </h5>
         <h5 className="fw-light">{item.year}</h5>
       </div>

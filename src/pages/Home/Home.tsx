@@ -6,7 +6,7 @@ import { getPopularMovies } from "../../api/movies-api";
 import { getPopularShows } from "../../api/shows-api";
 
 // Utils
-import { filterData } from "../../utils/filters";
+import { filterArray } from "../../utils/filters";
 
 // Components
 import Layout from "../../components/Layout";
@@ -30,9 +30,9 @@ export default function Home() {
     setIsLoading(true);
 
     const data = await getPopularMovies();
-    const filteredArray = filterData(data);
+    const filteredArray = filterArray(data);
     setContentArray(filteredArray);
-    console.log("MOVIES", filteredArray);
+    // console.log("MOVIES", filteredArray);
 
     // Stop loading
     setIsLoading(false);
@@ -44,15 +44,15 @@ export default function Home() {
 
     const data = await getPopularShows();
     console.log(data.data);
-    // const filteredArray = filterData(data);
-    // setContentArray(filteredArray);
+    const filteredArray = filterArray(data);
+    setContentArray(filteredArray);
     // console.log("SHOWS", filteredArray);
 
     // Stop loading
     setIsLoading(false);
   };
 
-  // Load/Update component
+  // Load/update component
   useEffect(() => {
     loadPopularMovies();
   }, []);
