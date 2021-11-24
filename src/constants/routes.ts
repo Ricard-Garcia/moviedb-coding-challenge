@@ -17,6 +17,11 @@ export const API = {
   REVIEWS: "reviews",
 };
 
+// ASSETS
+export const ASSETS = {
+  CAST_BACKDROP: "https://i.stack.imgur.com/l60Hf.png",
+};
+
 // Outside pages
 export const OUTSIDE = {
   REPOSITORY: "https://github.com/Ricard-Garcia/moviedb-coding-challenge",

@@ -30,7 +30,7 @@ export default function MovieCard({
         <img className="movie-card-image" src={item.image} alt={item.id} />
       </div>
       {/* Text */}
-      <div className="movie-card-text text-center ft-dark">
+      <div className="movie-card-text text-center fs-medium ft-light text-uppercase">
         <h5 className="fw-bold text-truncate">
           {isMovie ? item.title : item.name}
         </h5>

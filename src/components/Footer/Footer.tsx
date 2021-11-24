@@ -18,7 +18,7 @@ export default function Footer() {
     <footer
       className={`flex-between-center bg-${primary} ft-${secondary} row m-0 px-5`}
     >
-      <p className="col-12 col-md-6 m-0 px-0">Ricard Garcia © 2021</p>
+      <p className="col-12 col-md-6 m-0 px-0">Ricard Garcia @ 2021</p>
       <a
         href={OUTSIDE.REPOSITORY}
         className="d-none d-md-block fw-light text-end col-6 px-0"

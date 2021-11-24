@@ -62,6 +62,10 @@ export default function Detail() {
     loadDetails();
   }, []);
 
+  useEffect(() => {
+    loadDetails();
+  }, [location]);
+
   return (
     <Layout>
       {/* Top */}
@@ -117,7 +121,7 @@ export default function Detail() {
               {/* Cast */}
               <div className="mb-5">
                 <h5 className="ft-medium fw-bold mb-4">Cast</h5>
-                <div className="row p-0 m-0 row-cols-1 row-cols-sm-2 row-cols-lg-3">
+                <div className="row p-0 m-0 row-cols-1 row-cols-sm-2 row-cols-lg-3 g-2">
                   {shownItem.cast.map((cast: CastObject) => (
                     <CastCard cast={cast} />
                   ))}

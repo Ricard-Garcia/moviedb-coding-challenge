@@ -1,9 +1,14 @@
 .cast-card-wrapper {
   height: 60px;
-  img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
+  .cast-card-image-wrapper {
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  .cast-card-text {
+    overflow: hidden;
   }
 }

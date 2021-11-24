@@ -8,7 +8,7 @@ import {
 } from "./types";
 
 // Routes
-import { API } from "../constants/routes";
+import { API, ASSETS } from "../constants/routes";
 
 // Filter movies array
 export function filterMoviesArray(
@@ -47,7 +47,9 @@ export function filterMoviesArray(
       };
     }
 
-    filteredMoviesArray.push(itemObject);
+    if (item.backdrop_path !== null) {
+      filteredMoviesArray.push(itemObject);
+    }
   });
 
   return filteredMoviesArray;
@@ -59,13 +61,18 @@ export function filterCastArray(data: any): CastObject[] {
   let filteredCastArray: CastObject[] = [];
 
   originalCastArray.slice(0, 9).forEach((cast: any) => {
-    let castObject: CastObject;
+    let castObject: any;
     // Create actor/actress object
     castObject = {
       character: cast.character,
       name: cast.name,
       image: `${API.IMAGES}${cast.profile_path}`,
     };
+
+    // Add backdrop image if needed
+    if (cast.profile_path === null) {
+      castObject.image = ASSETS.CAST_BACKDROP;
+    }
 
     filteredCastArray.push(castObject);
   });
