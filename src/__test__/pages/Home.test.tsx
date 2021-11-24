@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-// import { act } from "react-dom/test-utils";
-
 import { render, screen, cleanup, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-
-import { render, screen } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 // Routes
@@ -15,6 +14,8 @@ import Header from "../../components/Header";
 import ThemeToggle from "../../components/ThemeToggle";
 
 describe("Render Header", () => {
+  afterEach(cleanup);
+
   render(
     <Router>
       <ReduxProvider>

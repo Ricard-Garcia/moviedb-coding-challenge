@@ -68,7 +68,11 @@ export default function Detail() {
   return (
     <Layout>
       {/* Top */}
-      <div id="detailTop" className="flex-between-center container-fluid p-0">
+      <div
+        id="detailTop"
+        data-testid="detail-top"
+        className="flex-between-center container-fluid p-0"
+      >
         {isLoading ? (
           <Spinner />
         ) : (
@@ -77,7 +81,11 @@ export default function Detail() {
       </div>
 
       {/* Middle */}
-      <div id="itemMiddle" className="container-fluid row m-0 p-0 p-5">
+      <div
+        id="detailMiddle"
+        data-testid="detail-middle"
+        className="container-fluid row m-0 p-0 p-5"
+      >
         {isLoading ? (
           <Spinner />
         ) : (
@@ -133,7 +141,7 @@ export default function Detail() {
         )}
       </div>
       {/* Bottom */}
-      <div id="detailBottom">
+      <div id="detailBottom" data-testid="detail-bottom">
         {isLoading ? (
           <Spinner />
         ) : (
