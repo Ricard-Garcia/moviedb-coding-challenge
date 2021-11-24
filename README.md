@@ -65,7 +65,7 @@ yarn test
 ### Folder structure 🗂
 
 ```
-├── documentation <i>// All project wireframes, PRD</i>
+├── documentation <i>// All project </i>
 └── src
   ├── __test__
   ├── api <i>// All api petitions</i>
@@ -98,11 +98,10 @@ Even though the size of its application is small, the **Scrum Agile Methodology*
 
 **Epics**
 
-- Project configuration
-- Frontend structure
-- Backend structure
-- Documentation
-- Remaining tasks
+- Initial configuration
+- Design & project structure
+- API calls
+- Testing
 
 ### Naming Strategy
 
