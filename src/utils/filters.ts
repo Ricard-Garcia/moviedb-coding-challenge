@@ -58,7 +58,7 @@ export function filterCastArray(data: any): CastObject[] {
   const originalCastArray: any = data.cast;
   let filteredCastArray: CastObject[] = [];
 
-  originalCastArray.slice(0, 3).forEach((cast: any) => {
+  originalCastArray.slice(0, 9).forEach((cast: any) => {
     let castObject: CastObject;
     // Create actor/actress object
     castObject = {

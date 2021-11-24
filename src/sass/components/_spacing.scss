@@ -1,6 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*                                   CLASSES                                  */
 /* -------------------------------------------------------------------------- */
+.flex-start-center,
 .flex-center-center,
 .flex-between-start,
 .flex-between-center,
@@ -32,6 +33,7 @@
   align-items: start;
 }
 
+.flex-start-center,
 .flex-center-center,
 .flex-between-center {
   align-items: center;

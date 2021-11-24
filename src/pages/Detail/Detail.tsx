@@ -7,6 +7,7 @@ import { getShowById } from "../../api/shows-api";
 
 // Utils
 import { filterItem } from "../../utils/filters";
+import { CastObject, MovieObject } from "../../utils/types";
 
 // Routes
 import { PAGES } from "../../constants/routes";
@@ -17,6 +18,8 @@ import "./Detail.scss";
 // Components
 import Layout from "../../components/Layout";
 import Spinner from "../../components/Spinner";
+import CastCard from "../../components/CastCard";
+import MovieCard from "../../components/MovieCard";
 
 export default function Detail() {
   // State
@@ -62,27 +65,80 @@ export default function Detail() {
   return (
     <Layout>
       {/* Top */}
-      <div
-        id="detailTop"
-        className="flex-between-center container-fluid p-0 pb-5"
-      >
-        <img src={shownItem.image} alt={shownItem.image} />
+      <div id="detailTop" className="flex-between-center container-fluid p-0">
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <img src={shownItem.image} alt={shownItem.image} />
+        )}
+      </div>
+
+      {/* Middle */}
+      <div id="itemMiddle" className="container-fluid row m-0 p-0 p-5">
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <>
+            {/* Middle top */}
+            {/* Title & year */}
+            <div className="row p-0 m-0 mb-5">
+              <h1 className="col-12 col-md-9 col-lg-10 ft-large fw-bold text-uppercase text-truncate">
+                {isMovie ? shownItem.title : shownItem.name}
+                <span className="ms-4 col-12 col-md-2 text-end ft-large fw-light">
+                  ({shownItem.year})
+                </span>
+              </h1>
+              {/* Vote */}
+              <h1 className="col-12 col-md-3 col-lg-2 text-end ft-large fw-light">
+                {shownItem.vote}/10
+              </h1>
+            </div>
+
+            {/* Middle left */}
+            <div className="col col-12 col-md-6 p-0 pe-3 row p-0 m-0">
+              {/* Overview */}
+              <div className="col-12 col-md-8 mb-5">
+                <h5 className="ft-medium fw-bold mb-4">Overview</h5>
+                <p className="ft-small">{shownItem.overview}</p>
+              </div>
+              {/* Genres */}
+              <div className="col-12 col-md-4 mb-5">
+                <h5 className="ft-medium fw-bold mb-4">Genres</h5>
+                <div>
+                  {shownItem.genres.map((genre: string) => (
+                    <p className="ft-small">{genre}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Middle right */}
+            <div className="col col-12 col-md-6 p-0 ps-3">
+              {/* Cast */}
+              <div className="mb-5">
+                <h5 className="ft-medium fw-bold mb-4">Cast</h5>
+                <div className="row p-0 m-0 row-cols-1 row-cols-sm-2 row-cols-lg-3">
+                  {shownItem.cast.map((cast: CastObject) => (
+                    <CastCard cast={cast} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
       {/* Bottom */}
       <div id="detailBottom">
         {isLoading ? (
           <Spinner />
         ) : (
-          <div id="itemWrapper" className="row px-5 m-0">
-            {/* Left */}
-            <div id="itemLeft" className="col col-12 col-md-6 p-0">
-              {/* Title & year */}
-              <h1 className="fw-bold">
-                {isMovie ? shownItem.title : shownItem.name} | {shownItem.year}
-              </h1>
+          <div className="mb-5">
+            <h5 className="ft-medium fw-bold mb-4 px-5">Similar</h5>
+            <div className="row m-0">
+              {shownItem.similar.map((item: any) => (
+                <MovieCard item={item} />
+              ))}
             </div>
-
-            {/* Right */}
           </div>
         )}
       </div>

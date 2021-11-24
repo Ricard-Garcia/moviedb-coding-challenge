@@ -9,6 +9,10 @@ export interface MovieCardProps {
   item: any;
 }
 
+export interface CastCardProps {
+  cast: CastObject;
+}
+
 // Redux
 export interface ReduxState {
   isLight: boolean;

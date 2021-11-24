@@ -10,7 +10,9 @@ import { MovieCardProps } from "../../utils/types";
 // Styles
 import "./MovieCard.scss";
 
-export default function MovieCard({ item }: MovieCardProps) {
+export default function MovieCard({
+  item,
+}: MovieCardProps): React.ReactElement {
   let isMovie: boolean = false;
 
   if (item.title) {
