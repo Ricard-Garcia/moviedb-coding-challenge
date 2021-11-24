@@ -11,34 +11,42 @@ import { filterItem } from "../../utils/filters";
 // Routes
 import { PAGES } from "../../constants/routes";
 
+// Styles
+import "./Detail.scss";
+
 // Components
 import Layout from "../../components/Layout";
+import Spinner from "../../components/Spinner";
 
 export default function Detail() {
   // State
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isMovie, setIsMovie] = useState<boolean>(true);
+  const [shownItem, setShownItem] = useState<any>({});
 
   // Target id
   const { id } = useMatch(`${PAGES.DETAIL}/:id`)!.params;
   const location = useLocation();
+  const isMovie = location.state.isMovie;
 
   // Handlers & loaders
   const loadDetails = async () => {
     // Start loading
     setIsLoading(true);
 
+    // Movie
     if (typeof id === "string") {
-      // Movie
       if (isMovie) {
         const data = await getMovieById(id);
         const filteredItem = filterItem(data);
-        console.log(filteredItem);
+        console.log("MOVIE", filteredItem);
+        setShownItem(filteredItem);
       }
       // Show
       else {
-        // const data = await getShowById(id);
-        // console.log(data.data);
+        const data = await getShowById(id);
+        const filteredItem = filterItem(data);
+        console.log("SHOW", filteredItem);
+        setShownItem(filteredItem);
       }
     }
 
@@ -48,20 +56,35 @@ export default function Detail() {
 
   // Load/update component
   useEffect(() => {
-    setIsMovie(location.state.isMovie);
-
     loadDetails();
   }, []);
 
   return (
     <Layout>
       {/* Top */}
-      <div id="detailTop" className="flex-between-center px-5 pb-5">
-        <h1 className="text-uppercase">Movie/Show name</h1>
+      <div
+        id="detailTop"
+        className="flex-between-center container-fluid p-0 pb-5"
+      >
+        <img src={shownItem.image} alt={shownItem.image} />
       </div>
       {/* Bottom */}
       <div id="detailBottom">
-        <p>Content goes here</p>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div id="itemWrapper" className="row px-5 m-0">
+            {/* Left */}
+            <div id="itemLeft" className="col col-12 col-md-6 p-0">
+              {/* Title & year */}
+              <h1 className="fw-bold">
+                {isMovie ? shownItem.title : shownItem.name} | {shownItem.year}
+              </h1>
+            </div>
+
+            {/* Right */}
+          </div>
+        )}
       </div>
     </Layout>
   );

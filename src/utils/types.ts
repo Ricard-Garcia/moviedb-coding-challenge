@@ -32,3 +32,26 @@ export interface MovieObject extends ItemObject {
 export interface ShowObject extends ItemObject {
   name: string;
 }
+
+export interface CastObject {
+  character: string;
+  name: string;
+  image: string;
+}
+
+export interface DetailedObject {
+  genres: string[];
+  cast: CastObject[];
+  vote: number;
+  image: string;
+  overview: string;
+  similar: MovieObject[] | ShowObject[];
+  year: string;
+}
+
+export interface DetailedMovie extends DetailedObject {
+  title: string;
+}
+export interface DetailedShow extends DetailedObject {
+  name: string;
+}

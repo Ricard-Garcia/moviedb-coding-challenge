@@ -4,5 +4,5 @@ import React from "react";
 import { OnlyChildren } from "../../utils/types";
 
 export default function Main({ children }: OnlyChildren) {
-  return <main className="flex-grow-1 pt-5">{children}</main>;
+  return <main className="flex-grow-1">{children}</main>;
 }

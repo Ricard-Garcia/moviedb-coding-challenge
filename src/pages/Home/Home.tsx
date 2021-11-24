@@ -6,7 +6,7 @@ import { getPopularMovies } from "../../api/movies-api";
 import { getPopularShows } from "../../api/shows-api";
 
 // Utils
-import { filterArray } from "../../utils/filters";
+import { filterMoviesArray } from "../../utils/filters";
 
 // Components
 import Layout from "../../components/Layout";
@@ -30,9 +30,9 @@ export default function Home() {
     setIsLoading(true);
 
     const data = await getPopularMovies();
-    const filteredArray = filterArray(data);
+    const filteredArray = filterMoviesArray(data);
+    console.log(filteredArray);
     setContentArray(filteredArray);
-    // console.log("MOVIES", filteredArray);
 
     // Stop loading
     setIsLoading(false);
@@ -43,10 +43,9 @@ export default function Home() {
     setIsLoading(true);
 
     const data = await getPopularShows();
-    console.log(data.data);
-    const filteredArray = filterArray(data);
+    const filteredArray = filterMoviesArray(data);
+    console.log(filteredArray);
     setContentArray(filteredArray);
-    // console.log("SHOWS", filteredArray);
 
     // Stop loading
     setIsLoading(false);
@@ -68,7 +67,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Top */}
-      <div id="homeTop" className="flex-between-center px-5 pb-5">
+      <div id="homeTop" className="flex-between-center p-5">
         <h1 className="text-uppercase">
           {showMovies ? "Popular movies" : "Popular shows"}
         </h1>
@@ -81,7 +80,9 @@ export default function Home() {
           <Spinner />
         ) : (
           // TODO solve bug (MovieObject | ShowObject title)
-          contentArray.map((item: any) => <MovieCard item={item} />)
+          contentArray.map((item: any) => (
+            <MovieCard key={item.id} item={item} />
+          ))
         )}
       </div>
     </Layout>

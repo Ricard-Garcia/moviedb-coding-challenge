@@ -28,5 +28,7 @@ export async function getMovieById(
   id: string | null,
   api: any = makeMovieApi()
 ) {
-  return api.get(`/${id}?api_key=${REACT_APP_API_KEY}`);
+  return api.get(
+    `/${id}?api_key=${REACT_APP_API_KEY}&append_to_response=${API.GENRES},${API.SIMILAR},${API.CREDITS},${API.KEYWORDS},${API.REVIEWS}`
+  );
 }

@@ -1,47 +1,111 @@
 // Utils
-import { MovieObject, ShowObject } from "./types";
+import {
+  MovieObject,
+  ShowObject,
+  CastObject,
+  DetailedMovie,
+  DetailedShow,
+} from "./types";
 
 // Routes
 import { API } from "../constants/routes";
 
-// Filter array
-export function filterArray(data: any): MovieObject[] | ShowObject[] {
-  const originalArray: any = data.data.results;
-  let filteredArray: any = [];
+// Filter movies array
+export function filterMoviesArray(
+  data: any,
+  areSimilar: boolean = false
+): MovieObject[] | ShowObject[] {
+  // Iterate differently if array of movies/shows or of reviews
+  const originalMoviesArray: any = areSimilar
+    ? data.results
+    : data.data.results;
+  let filteredMoviesArray: any = [];
 
-  originalArray.forEach((item: any) => {
-    let itemObject: MovieObject | ShowObject;
-    // Array of movies
+  originalMoviesArray.forEach((item: any) => {
+    let itemObject: any;
+
+    // Global
+    itemObject = {
+      id: item.id,
+      image: `${API.IMAGES}${item.backdrop_path}`,
+    };
+
+    // Movies
     if (item.title) {
       itemObject = {
-        id: item.id,
+        ...itemObject,
         title: item.title,
-        image: `${API.IMAGES}${item.backdrop_path}`,
         year: translateDate(item.release_date),
       };
     }
-    // Array of shows
+    // Shows
     else {
       itemObject = {
-        id: item.id,
+        ...itemObject,
         name: item.name,
-        image: `${API.IMAGES} ${item.backdrop_path}`,
-        year: "2021",
+        year: translateDate(item.first_air_date),
       };
-      // console.log(item.first_air_date);
     }
 
-    filteredArray.push(itemObject);
+    filteredMoviesArray.push(itemObject);
   });
 
-  return filteredArray;
+  return filteredMoviesArray;
+}
+
+// Filter cast array
+export function filterCastArray(data: any): CastObject[] {
+  const originalCastArray: any = data.cast;
+  let filteredCastArray: CastObject[] = [];
+
+  originalCastArray.slice(0, 3).forEach((cast: any) => {
+    let castObject: CastObject;
+    // Create actor/actress object
+    castObject = {
+      character: cast.character,
+      name: cast.name,
+      image: `${API.IMAGES}${cast.profile_path}`,
+    };
+
+    filteredCastArray.push(castObject);
+  });
+
+  return filteredCastArray;
 }
 
 // Filter movie/show
-export function filterItem(data: any): MovieObject | ShowObject {
-  let filteredItem: MovieObject | ShowObject;
+export function filterItem(data: any): DetailedMovie | DetailedShow {
+  let originalItem: any = data.data;
+  let filteredItem: any;
 
-  filteredItem = data.data;
+  // Global
+  filteredItem = {
+    genres: getArrayNames(originalItem.genres),
+    cast: filterCastArray(originalItem.credits),
+    vote: originalItem.vote_average,
+    image: `${API.IMAGES}${originalItem.backdrop_path}`,
+    overview: originalItem.overview,
+    similar: filterMoviesArray(originalItem.similar, true),
+  };
+
+  // Movie
+  if (originalItem.title) {
+    filteredItem = {
+      ...filteredItem,
+      title: originalItem.title,
+      year: translateDate(originalItem.release_date),
+    };
+  }
+  // Show
+  else {
+    filteredItem = {
+      ...filteredItem,
+      name: originalItem.name,
+      year: translateDate(originalItem.first_air_date),
+    };
+  }
+
+  // filteredItem = originalItem;
   return filteredItem;
 }
 
@@ -49,4 +113,15 @@ export function filterItem(data: any): MovieObject | ShowObject {
 function translateDate(date: string): string {
   const year: string = date.split("-")[0];
   return year;
+}
+
+// Get names from array
+function getArrayNames(array: any) {
+  let arrayNames: string[] = [];
+
+  array.forEach((item: any) => {
+    arrayNames.push(item.name);
+  });
+
+  return arrayNames;
 }

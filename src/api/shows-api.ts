@@ -24,6 +24,8 @@ export async function getPopularShows(
 }
 
 // Get popular shows
-export async function getShowById(id: number, api: any = makeShowApi()) {
-  return api.get(`/${id}?api_key=${REACT_APP_API_KEY}`);
+export async function getShowById(id: string, api: any = makeShowApi()) {
+  return api.get(
+    `/${id}?api_key=${REACT_APP_API_KEY}&append_to_response=${API.GENRES},${API.SIMILAR},${API.CREDITS},${API.KEYWORDS},${API.REVIEWS}`
+  );
 }
