@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 // API
 import { getPopularMovies } from "../../api/movies-api";
@@ -31,7 +30,6 @@ export default function Home() {
 
     const data = await getPopularMovies();
     const filteredArray = filterMoviesArray(data);
-    console.log(filteredArray);
     setContentArray(filteredArray);
 
     // Stop loading
@@ -44,7 +42,6 @@ export default function Home() {
 
     const data = await getPopularShows();
     const filteredArray = filterMoviesArray(data);
-    console.log(filteredArray);
     setContentArray(filteredArray);
 
     // Stop loading

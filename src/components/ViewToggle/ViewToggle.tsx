@@ -11,6 +11,8 @@ export default function RadioButtons({
       className="btn-group home-radio"
       role="group"
       aria-label="Basic radio toggle button group"
+      id="viewToggle"
+      data-testid="view-toggle"
     >
       <input
         type="radio"

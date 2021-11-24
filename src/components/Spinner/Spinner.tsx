@@ -9,7 +9,7 @@ export default function Spinner() {
   const globalState = useSelector((state: any) => state.global);
 
   // Theme colors
-  const [primary, secondary] = setTheme(globalState.isLight);
+  const secondary = setTheme(globalState.isLight)[1];
 
   return <div className={`spinner-grow ft-${secondary}`} />;
 }

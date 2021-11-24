@@ -34,7 +34,7 @@ export default function MovieCard({
         <h5 className="fw-bold text-truncate">
           {isMovie ? item.title : item.name}
         </h5>
-        <h5 className="fw-light">{item.year}</h5>
+        <h5 className="fw-bold">{item.vote}/10</h5>
       </div>
     </Link>
   );

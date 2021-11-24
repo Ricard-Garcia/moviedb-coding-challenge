@@ -7,7 +7,7 @@ import { getShowById } from "../../api/shows-api";
 
 // Utils
 import { filterItem } from "../../utils/filters";
-import { CastObject, MovieObject } from "../../utils/types";
+import { CastObject } from "../../utils/types";
 
 // Routes
 import { PAGES } from "../../constants/routes";
@@ -41,14 +41,12 @@ export default function Detail() {
       if (isMovie) {
         const data = await getMovieById(id);
         const filteredItem = filterItem(data);
-        console.log("MOVIE", filteredItem);
         setShownItem(filteredItem);
       }
       // Show
       else {
         const data = await getShowById(id);
         const filteredItem = filterItem(data);
-        console.log("SHOW", filteredItem);
         setShownItem(filteredItem);
       }
     }
@@ -110,7 +108,9 @@ export default function Detail() {
                 <h5 className="ft-medium fw-bold mb-4">Genres</h5>
                 <div>
                   {shownItem.genres.map((genre: string) => (
-                    <p className="ft-small">{genre}</p>
+                    <p key={genre} className="ft-small">
+                      {genre}
+                    </p>
                   ))}
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function Detail() {
                 <h5 className="ft-medium fw-bold mb-4">Cast</h5>
                 <div className="row p-0 m-0 row-cols-1 row-cols-sm-2 row-cols-lg-3 g-2">
                   {shownItem.cast.map((cast: CastObject) => (
-                    <CastCard cast={cast} />
+                    <CastCard key={cast.name} cast={cast} />
                   ))}
                 </div>
               </div>

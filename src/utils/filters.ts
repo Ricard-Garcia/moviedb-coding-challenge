@@ -28,6 +28,7 @@ export function filterMoviesArray(
     itemObject = {
       id: item.id,
       image: `${API.IMAGES}${item.backdrop_path}`,
+      vote: item.vote_average,
     };
 
     // Movies

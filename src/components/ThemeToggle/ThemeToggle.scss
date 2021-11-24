@@ -17,7 +17,7 @@
   // Light mode
   .custom-switch.react-toggle--checked .react-toggle-track {
     background-color: c.$lightColor;
-    border: 1px solid c.$lightColor;
+    border: 1px solid c.$darkColor;
   }
 
   // Dark mode

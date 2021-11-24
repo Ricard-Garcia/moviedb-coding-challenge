@@ -21,7 +21,7 @@ export default function Header() {
       className={`flex-between-center p-3 px-5 bg-${primary} ft-${secondary}`}
     >
       {/* Title */}
-      <Link className="fw-bold m-0" to={PAGES.HOME}>
+      <Link data-testid="home-link" className="fw-bold m-0" to={PAGES.HOME}>
         The MovieDB Challenge
       </Link>
       {/* Theme toggle */}

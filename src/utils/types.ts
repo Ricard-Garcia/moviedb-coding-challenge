@@ -27,6 +27,7 @@ interface ItemObject {
   id: number;
   year: string;
   image: string;
+  vote: string;
 }
 
 export interface MovieObject extends ItemObject {

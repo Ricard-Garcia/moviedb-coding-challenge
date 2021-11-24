@@ -20,7 +20,7 @@ export default function ThemeSwitch() {
   };
 
   return (
-    <div id="switchWrapper">
+    <div id="switchWrapper" data-testid="theme-toggle">
       <Toggle
         defaultChecked={globalState.isLight}
         className="custom-switch d-flex align-items-center"
