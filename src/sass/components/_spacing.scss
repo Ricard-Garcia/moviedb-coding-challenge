@@ -6,7 +6,8 @@
 .flex-between-start,
 .flex-between-center,
 .flex-center-start,
-.flex-end-start {
+.flex-end-start,
+.flex-end-center {
   //   width: 100%;
   display: flex;
 }
@@ -22,7 +23,8 @@
   justify-content: space-between;
 }
 
-.flex-end-start {
+.flex-end-start,
+.flex-end-center {
   justify-content: end;
 }
 
@@ -35,7 +37,8 @@
 
 .flex-start-center,
 .flex-center-center,
-.flex-between-center {
+.flex-between-center,
+.flex-end-center {
   align-items: center;
 }
 

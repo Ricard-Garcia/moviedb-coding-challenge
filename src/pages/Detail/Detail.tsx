@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useMatch, useLocation } from "react-router-dom";
+import { MdStarBorder } from "react-icons/md";
 
 // API
 import { getMovieById } from "../../api/movies-api";
@@ -84,16 +85,16 @@ export default function Detail() {
             {/* Middle top */}
             {/* Title & year */}
             <div className="row p-0 m-0 mb-5">
-              <h1 className="col-12 col-md-9 col-lg-10 ft-large fw-bold text-uppercase text-truncate">
+              <div className="col-12 col-md-9 col-lg-10 ft-large fw-bold text-uppercase text-truncate">
                 {isMovie ? shownItem.title : shownItem.name}
                 <span className="ms-4 col-12 col-md-2 text-end ft-large fw-light">
                   ({shownItem.year})
                 </span>
-              </h1>
+              </div>
               {/* Vote */}
-              <h1 className="col-12 col-md-3 col-lg-2 text-end ft-large fw-light">
-                {shownItem.vote}/10
-              </h1>
+              <div className="col-12 col-md-3 col-lg-2 text-end ft-large fw-light flex-center-end p-0">
+                {shownItem.vote} <MdStarBorder className="fs-large mb-3" />
+              </div>
             </div>
 
             {/* Middle left */}

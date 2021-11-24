@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MdStarBorder } from "react-icons/md";
 
 // Routes
 import { PAGES } from "../../constants/routes";
@@ -32,7 +33,9 @@ export default function MovieCard({
         <h5 className="fw-bold text-truncate">
           {isMovie ? item.title : item.name}
         </h5>
-        <h5 className="fw-bold">{item.vote}/10</h5>
+        <h5 className="fw-light m-0">
+          {item.vote} <MdStarBorder className="mb-1" />
+        </h5>
       </div>
     </Link>
   );
