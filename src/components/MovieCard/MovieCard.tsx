@@ -26,9 +26,7 @@ export default function MovieCard({
       state={{ isMovie: isMovie }}
     >
       {/* Image */}
-      <div className="movie-card-image-wrapper">
-        <img className="movie-card-image" src={item.image} alt={item.id} />
-      </div>
+      <img className="movie-card-image" src={item.image} alt={item.id} />
       {/* Text */}
       <div className="movie-card-text text-center fs-medium ft-light text-uppercase">
         <h5 className="fw-bold text-truncate">

@@ -140,7 +140,7 @@ export default function Detail() {
             <h5 className="ft-medium fw-bold mb-4 px-5">Similar</h5>
             <div className="row m-0">
               {shownItem.similar.map((item: any) => (
-                <MovieCard item={item} />
+                <MovieCard key={item.id} item={item} />
               ))}
             </div>
           </div>
