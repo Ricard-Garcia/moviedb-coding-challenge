@@ -62,7 +62,7 @@ export default function Home() {
   }, [showMovies]);
 
   return (
-    <Layout>
+    <Layout docTitle={showMovies ? "Popular movies" : "Popular shows"}>
       {/* Top */}
       <div id="homeTop" className="flex-between-center p-5">
         <h1 className="text-uppercase">

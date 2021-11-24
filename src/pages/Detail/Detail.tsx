@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { useMatch, useLocation } from "react-router-dom";
 import { MdStarBorder } from "react-icons/md";
@@ -66,7 +67,7 @@ export default function Detail() {
   }, [location]);
 
   return (
-    <Layout>
+    <Layout docTitle={isMovie ? shownItem.title : shownItem.name}>
       {/* Top */}
       <div
         id="detailTop"

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 // Styles
 import "bootstrap/dist/css/bootstrap.css";
@@ -12,7 +13,20 @@ import Router from "./components/Router";
 function App() {
   return (
     <div id="appWrapper">
-      <Router />
+      <HelmetProvider>
+        {/* Dynamic document title */}
+        <Helmet
+          titleTemplate="%s | MovieDb"
+          defaultTitle="MovieDb Coding Challenge"
+        >
+          <meta
+            name="description"
+            content="Check popular movies and tv shows"
+          />
+        </Helmet>
+        {/* App router */}
+        <Router />
+      </HelmetProvider>
     </div>
   );
 }

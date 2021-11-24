@@ -13,6 +13,10 @@ export interface CastCardProps {
   cast: CastObject;
 }
 
+export interface LayoutProps extends OnlyChildren {
+  docTitle: string;
+}
+
 // Redux
 export interface ReduxState {
   isLight: boolean;
