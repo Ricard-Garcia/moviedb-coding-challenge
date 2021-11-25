@@ -65,7 +65,7 @@ yarn test
 ### Folder structure 🗂
 
 ```
-├── documentation <i>// All project </i>
+├── documentation
 └── src
   ├── __test__
   ├── api <i>// All api petitions</i>

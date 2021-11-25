@@ -6,6 +6,7 @@ import { getPopularShows } from "../../api/shows-api";
 
 // Utils
 import { filterMoviesArray } from "../../utils/filters";
+import { MovieObject, ShowObject } from "../../utils/types";
 
 // Components
 import Layout from "../../components/Layout";
@@ -76,8 +77,7 @@ export default function Home() {
         {isLoading ? (
           <Spinner />
         ) : (
-          // TODO solve bug (MovieObject | ShowObject title)
-          contentArray.map((item: any) => (
+          contentArray.map((item: MovieObject | ShowObject) => (
             <MovieCard key={item.id} item={item} />
           ))
         )}

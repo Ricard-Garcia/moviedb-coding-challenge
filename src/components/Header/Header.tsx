@@ -9,7 +9,7 @@ import ThemeToggle from "../ThemeToggle";
 import setTheme from "../../utils/theme";
 import { PAGES } from "../../constants/routes";
 
-export default function Header() {
+export default function Header(): React.ReactElement {
   // Redux
   const globalState = useSelector((state: any) => state.global);
 

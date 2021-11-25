@@ -9,7 +9,7 @@ import { setTheme } from "../../redux/global/actions";
 // Styles
 import "./ThemeToggle.scss";
 
-export default function ThemeSwitch() {
+export default function ThemeSwitch(): React.ReactElement {
   // Redux
   const globalState = useSelector((state: any) => state.global);
   const dispatch = useDispatch<any>();

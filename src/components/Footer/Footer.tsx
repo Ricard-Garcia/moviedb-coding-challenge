@@ -7,7 +7,7 @@ import { OUTSIDE } from "../../constants/routes";
 // Utils
 import setTheme from "../../utils/theme";
 
-export default function Footer() {
+export default function Footer(): React.ReactElement {
   // Redux
   const globalState = useSelector((state: any) => state.global);
 

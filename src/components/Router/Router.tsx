@@ -8,7 +8,7 @@ import { PAGES } from "../../constants/routes";
 import Home from "../../pages/Home";
 import Detail from "../../pages/Detail";
 
-export default function Router() {
+export default function Router(): React.ReactElement {
   return (
     <BrowserRouter>
       <Routes>
