@@ -1,13 +1,13 @@
 # MovieDb Coding Challenge
 
-- [Introduction & requirements](#introcution-&-requirements)
-- [Getting started](#getting-started)
-- [Project structure](#project-structure)
-- [Deployment](#deployment)
-- [Workflow](#workflow)
-- [Future improvements](#future-improvements)
-- [Feedback](#feedback)
-- [Resources](#resources)
+- [Introduction & requirements](##introcution-&-requirements)
+- [Getting started](##getting-started)
+- [Project structure](##project-structure)
+- [Deployment](##deployment)
+- [Workflow](##workflow)
+- [Future improvements](##future-improvements)
+- [Feedback](##feedback)
+- [Resources](##resources)
 
 ## 🧭 Introduction & requirements
 
