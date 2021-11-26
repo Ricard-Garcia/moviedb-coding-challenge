@@ -71,7 +71,6 @@ yarn test
   ├── api <i>// All api petitions</i>
   ├── components
   ├── constants
-  ├── __mocks__ <i>// For testing purposes</i>
   ├── pages
   ├── sass
   └── utils <i>// Reusable code snippets </i>
